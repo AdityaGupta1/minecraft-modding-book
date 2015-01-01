@@ -1,0 +1,16 @@
+[
+{
+  "modid": "myMods",
+  "name": "My Mods",
+  "description": "My Mods",
+  "version": "${version}",
+  "mcversion": "1.7.10
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Aditya Gupta"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
