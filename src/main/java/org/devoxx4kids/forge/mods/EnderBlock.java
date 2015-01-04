@@ -1,11 +1,8 @@
 package org.devoxx4kids.forge.mods;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 
 public class EnderBlock extends Block {
 	public EnderBlock() {

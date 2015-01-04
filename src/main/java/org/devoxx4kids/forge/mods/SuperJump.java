@@ -1,7 +1,6 @@
 package org.devoxx4kids.forge.mods;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

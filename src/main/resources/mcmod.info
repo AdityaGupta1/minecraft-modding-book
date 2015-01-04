@@ -1,8 +1,22 @@
 [
 {
-  "modid": "myMods",
-  "name": "My Mods",
-  "description": "My Mods",
+  "modid": "ForgeWorldEdit",
+  "name": "Forge WorldEdit",
+  "description": "WorldEdit for Minecraft Forge!",
+  "version": "${version}",
+  "mcversion": "1.7.10
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Aditya Gupta"],
+  "credits": "sk89q, TomyLobo, wizjany, and zml2008 for making the original WorldEdit!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+},
+{
+  "modid": "EnderStuff",
+  "name": "Ender Stuff",
+  "description": "Ender Stuff!!",
   "version": "${version}",
   "mcversion": "1.7.10
   "url": "",
