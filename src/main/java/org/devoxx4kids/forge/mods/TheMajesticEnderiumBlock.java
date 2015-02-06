@@ -14,7 +14,7 @@ public class TheMajesticEnderiumBlock extends Block {
 		super(Material.iron);
 		this.setBlockName("enderBlock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.textureName = "myMods:ender_block";
+		this.textureName = "mymods:ender_block";
 		this.setResistance(5.0F);
 		this.setHardness(10.0F);
 		this.setLightLevel(1.0F);

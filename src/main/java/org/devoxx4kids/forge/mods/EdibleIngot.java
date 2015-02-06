@@ -10,6 +10,6 @@ public class EdibleIngot extends ItemFood {
 		this.setAlwaysEdible();
 		this.setUnlocalizedName("edibleIngot");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
-		this.setTextureName("myMods:ender_ingot");
+		this.setTextureName("mymods:ender_ingot");
 	}
 }

@@ -8,6 +8,6 @@ public class EnderIngot extends Item {
 		super();
 		this.setUnlocalizedName("ingotEnder");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
-		this.setTextureName("myMods:ender_ingot");
+		this.setTextureName("mymods:ender_ingot");
 	}
 }
