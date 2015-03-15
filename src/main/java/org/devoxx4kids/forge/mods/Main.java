@@ -1,25 +1,28 @@
 package org.devoxx4kids.forge.mods;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionHelper;
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Main.MODID, version = Main.VERSION)
 public class Main {
 	public static final String MODID = "MyMods";
 	public static final String VERSION = "2.0";
 
-	public static Block ender_block;
-	public static Item ender_ingot;
+	public static Block enderBlock;
+	public static Item enderIngot;
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -27,7 +30,6 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(new ExplodingMinecarts());
 		MinecraftForge.EVENT_BUS.register(new ExplodingAnvils());
 		MinecraftForge.EVENT_BUS.register(new DiamondOreTrap());
-
 		MinecraftForge.EVENT_BUS.register(new BiggerTNTExplosionsWithFuse());
 		// MinecraftForge.EVENT_BUS.register(new
 		// BiggerTNTExplosionsWithoutFuse());
@@ -39,40 +41,51 @@ public class Main {
 		// MinecraftForge.EVENT_BUS.register(new SuperJump());
 		MinecraftForge.EVENT_BUS.register(new BouncySponges());
 
+		FMLCommonHandler.instance().bus().register(new Parachute());
 		MinecraftForge.EVENT_BUS.register(new Parachute());
 		MinecraftForge.EVENT_BUS.register(new GolemWallClimb());
 		MinecraftForge.EVENT_BUS.register(new BlockFillerPositionSelector());
 
-		ender_block = new EnderBlock();
-		// ender_block = new GlassStairs();
-		// ender_block = new TheMajesticEnderiumBlock();
-		// ender_block = new EnderIngotFromEnderBlock();
-		GameRegistry.registerBlock(ender_block, "Block of Enderium");
+		// enderBlock = new EnderBlock();
+		enderBlock = new BlockChanger();
+		// enderBlock = new TheMajesticEnderiumBlock();
+		// enderBlock = new EnderIngotFromEnderBlock();
+		GameRegistry.registerBlock(enderBlock, "enderBlock");
+		Item enderBlockItem = GameRegistry.findItem("mymods", "enderBlock");
+		ModelResourceLocation enderBlockModel = new ModelResourceLocation(
+				"mymods:enderBlock", "inventory");
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+				.register(enderBlockItem, 0, enderBlockModel);
 
-		ender_ingot = new EnderIngot();
-		// ender_ingot = new EndermanSpawner();
-		// ender_ingot = new EdibleIngot();
-		GameRegistry.registerItem(ender_ingot, "Enderium Ingot");
+		enderIngot = new EnderIngot();
+		// enderIngot = new EndermanSpawner();
+		// enderIngot = new EdibleIngot();
+		GameRegistry.registerItem(enderIngot, "enderIngot");
+		Item enderIngotItem = GameRegistry.findItem("mymods", "enderIngot");
+		ModelResourceLocation enderIngotModel = new ModelResourceLocation(
+				"mymods:enderIngot", "inventory");
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+				.register(enderIngotItem, 0, enderIngotModel);
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.cobblestone), "dd", "dd",
 				'd', Blocks.dirt);
 
-		GameRegistry.addRecipe(new ItemStack(ender_block), "iii", "iii", "iii",
-				'i', ender_ingot);
+		GameRegistry.addRecipe(new ItemStack(enderBlock), "iii", "iii", "iii",
+				'i', enderIngot);
 
-		GameRegistry.addRecipe(new ItemStack(ender_block), "e e", " o ", "e e",
+		GameRegistry.addRecipe(new ItemStack(enderBlock), "e e", " o ", "e e",
 				'o', Blocks.obsidian, 'e', Items.ender_eye);
 
-		GameRegistry.addShapelessRecipe(new ItemStack(ender_ingot, 9),
-				new ItemStack(ender_block));
+		GameRegistry.addShapelessRecipe(new ItemStack(enderIngot, 9),
+				new ItemStack(enderBlock));
 
-		GameRegistry.addShapelessRecipe(new ItemStack(ender_ingot, 12),
-				new ItemStack(ender_block, 1), new ItemStack(Items.iron_ingot),
+		GameRegistry.addShapelessRecipe(new ItemStack(enderIngot, 12),
+				new ItemStack(enderBlock, 1), new ItemStack(Items.iron_ingot),
 				new ItemStack(Items.gold_ingot));
 
-		GameRegistry.addSmelting(Items.ender_pearl, new ItemStack(ender_ingot,
-				1), 1.0F);
-		
+		GameRegistry.addSmelting(Items.ender_pearl,
+				new ItemStack(enderIngot, 1), 1.0F);
+
 		Items.cake.setPotionEffect(PotionHelper.blazePowderEffect);
 	}
 
@@ -80,5 +93,10 @@ public class Main {
 	public void registerCommands(FMLServerStartingEvent event) {
 		event.registerServerCommand(new FlamingPigs());
 		event.registerServerCommand(new BlockFillCommand());
+	}
+
+	@EventHandler
+	public void test(FMLInitializationEvent event) {
+		MinecraftForge.EVENT_BUS.register(new MoreKnockback());
 	}
 }

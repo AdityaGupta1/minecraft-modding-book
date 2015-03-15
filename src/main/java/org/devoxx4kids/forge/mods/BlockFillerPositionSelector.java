@@ -8,7 +8,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockFillerPositionSelector {
 	
@@ -24,21 +24,21 @@ public class BlockFillerPositionSelector {
 		}
 		if (event.action == Action.RIGHT_CLICK_BLOCK) {
 			pos1.clear();
-			pos1.add(event.x);
-			pos1.add(event.y);
-			pos1.add(event.z);
+			pos1.add(event.pos.getX());
+			pos1.add(event.pos.getY());
+			pos1.add(event.pos.getZ());
 			event.entityPlayer.addChatMessage(new ChatComponentText(
-					EnumChatFormatting.GREEN + "Position 1 set to " + event.x
-							+ ", " + event.y + ", " + event.z + "."));
+					EnumChatFormatting.GREEN + "Position 1 set to " + event.pos.getX()
+							+ ", " + event.pos.getY() + ", " + event.pos.getZ() + "."));
 			event.setCanceled(true);
 		} else if (event.action == Action.LEFT_CLICK_BLOCK) {
 			pos2.clear();
-			pos2.add(event.x);
-			pos2.add(event.y);
-			pos2.add(event.z);
+			pos2.add(event.pos.getX());
+			pos2.add(event.pos.getY());
+			pos2.add(event.pos.getZ());
 			event.entityPlayer.addChatMessage(new ChatComponentText(
-					EnumChatFormatting.GREEN + "Position 2 set to " + event.x
-							+ ", " + event.y + ", " + event.z + "."));
+					EnumChatFormatting.GREEN + "Position 2 set to " + event.pos.getX()
+							+ ", " + event.pos.getY() + ", " + event.pos.getZ() + "."));
 			event.setCanceled(true);
 		}
 	}

@@ -1,9 +1,10 @@
 package org.devoxx4kids.forge.mods;
 
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BiggerTNTExplosionsWithoutFuse {
 

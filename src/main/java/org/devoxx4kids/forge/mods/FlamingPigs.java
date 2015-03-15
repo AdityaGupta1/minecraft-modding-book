@@ -3,10 +3,12 @@ package org.devoxx4kids.forge.mods;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
@@ -26,22 +28,29 @@ public class FlamingPigs implements ICommand {
 	}
 
 	@Override
-	public String getCommandName() {
-		return "flamingpigs";
-	}
-
-	@Override
 	public String getCommandUsage(ICommandSender sender) {
 		return "/flamingpigs <number of pigs>";
 	}
 
 	@Override
-	public List getCommandAliases() {
+	public boolean isUsernameIndex(String[] args, int index) {
+		return false;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List getAliases() {
 		return aliases;
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+	public void execute(ICommandSender sender, String[] args)
+			throws CommandException {
 		if (args.length != 1) {
 			sendErrorMessage(sender, "Invalid number of arguments!");
 			return;
@@ -69,18 +78,15 @@ public class FlamingPigs implements ICommand {
 	}
 
 	@Override
-	public boolean canCommandSenderUseCommand(ICommandSender sender) {
+	public boolean canCommandSenderUse(ICommandSender sender) {
 		return sender instanceof EntityPlayer;
 	}
 
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List addTabCompletionOptions(ICommandSender sender, String[] args,
+			BlockPos pos) {
+		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean isUsernameIndex(String[] args, int index) {
-		return false;
 	}
 
 }

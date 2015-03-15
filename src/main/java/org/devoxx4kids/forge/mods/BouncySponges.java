@@ -2,8 +2,9 @@ package org.devoxx4kids.forge.mods;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BouncySponges {
 	@SubscribeEvent
@@ -12,10 +13,10 @@ public class BouncySponges {
 			return;
 		}
 
-		if (event.entity.worldObj.getBlock(
-				((int) Math.floor(event.entity.posX)),
-				((int) Math.floor(event.entity.posY)) - 2,
-				((int) Math.floor(event.entity.posZ))) != Blocks.sponge) {
+		BlockPos pos = new BlockPos(event.entity.posX, event.entity.posY - 2,
+				event.entity.posZ);
+
+		if (event.entity.worldObj.getBlockState(pos).getBlock() != Blocks.sponge) {
 			return;
 		}
 

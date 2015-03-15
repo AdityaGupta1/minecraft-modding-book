@@ -1,4 +1,4 @@
-package org.devoxx4kids.forge.mods;
+	package org.devoxx4kids.forge.mods;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BiggerTNTExplosionsWithFuse {
 	
@@ -23,11 +23,11 @@ public class BiggerTNTExplosionsWithFuse {
 		Entity entity = event.entity;
 		EntityItem explosion = new EntityItem(event.world, entity.posX,
 				entity.posY, entity.posZ, new ItemStack(Blocks.tnt));
-		explosion.delayBeforeCanPickup = 32767;
+		explosion.setInfinitePickupDelay();
 		explosion.motionX = 0;
 		explosion.motionY = 0;
 		explosion.motionZ = 0;
-		explosion.age = 6000 - (fuse * 20);
+		explosion.lifespan = fuse * 20;
 		if (!event.world.isRemote) {
 			event.world.spawnEntityInWorld(explosion);
 		}

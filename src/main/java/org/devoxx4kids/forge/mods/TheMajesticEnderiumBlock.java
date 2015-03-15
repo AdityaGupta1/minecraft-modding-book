@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 public class TheMajesticEnderiumBlock extends Block {
 	public TheMajesticEnderiumBlock() {
 		super(Material.iron);
-		this.setBlockName("enderBlock");
+		this.setUnlocalizedName("enderBlock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.textureName = "mymods:ender_block";
 		this.setResistance(5.0F);
 		this.setHardness(10.0F);
 		this.setLightLevel(1.0F);

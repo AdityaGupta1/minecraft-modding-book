@@ -1,28 +1,14 @@
 [
 {
-  "modid": "ForgeWorldEdit",
-  "name": "Forge WorldEdit",
-  "description": "WorldEdit for Minecraft Forge!",
+  "modid": "examplemod",
+  "name": "Example Mod",
+  "description": "Example placeholder mod.",
   "version": "${version}",
-  "mcversion": "1.7.10
+  "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Aditya Gupta"],
-  "credits": "sk89q, TomyLobo, wizjany, and zml2008 for making the original WorldEdit!",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-},
-{
-  "modid": "EnderStuff",
-  "name": "Ender Stuff",
-  "description": "Ender Stuff!!",
-  "version": "${version}",
-  "mcversion": "1.7.10
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["Aditya Gupta"],
-  "credits": "",
+  "authorList": ["ExampleDude"],
+  "credits": "The Forge and FML guys, for making this example",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

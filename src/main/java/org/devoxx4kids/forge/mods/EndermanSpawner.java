@@ -12,7 +12,7 @@ public class EndermanSpawner extends Item {
 		super();
 		this.setUnlocalizedName("endermanSpawner");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
-		this.setTextureName("mymods:ender_ingot");
+//		this.setTextureName("mymods:ender_ingot");
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world,
