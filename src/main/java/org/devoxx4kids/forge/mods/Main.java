@@ -94,9 +94,4 @@ public class Main {
 		event.registerServerCommand(new FlamingPigs());
 		event.registerServerCommand(new BlockFillCommand());
 	}
-
-	@EventHandler
-	public void test(FMLInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new MoreKnockback());
-	}
 }
