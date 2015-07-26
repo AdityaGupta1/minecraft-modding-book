@@ -13,7 +13,7 @@ public class BouncySponges {
 			return;
 		}
 
-		BlockPos pos = new BlockPos(event.entity.posX, event.entity.posY - 2,
+		BlockPos pos = new BlockPos(event.entity.posX, event.entity.posY - 1,
 				event.entity.posZ);
 
 		if (event.entity.worldObj.getBlockState(pos).getBlock() != Blocks.sponge) {
