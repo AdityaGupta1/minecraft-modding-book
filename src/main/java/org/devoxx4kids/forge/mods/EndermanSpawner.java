@@ -10,9 +10,8 @@ import net.minecraft.world.World;
 public class EndermanSpawner extends Item {
 	public EndermanSpawner() {
 		super();
-		this.setUnlocalizedName("endermanSpawner");
+		this.setUnlocalizedName("enderIngot");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
-//		this.setTextureName("mymods:ender_ingot");
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world,

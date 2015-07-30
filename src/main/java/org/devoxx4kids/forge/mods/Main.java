@@ -46,8 +46,8 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(new GolemWallClimb());
 		MinecraftForge.EVENT_BUS.register(new BlockFillerPositionSelector());
 
-		// enderBlock = new EnderBlock();
-		enderBlock = new BlockChanger();
+		enderBlock = new EnderBlock();
+		// enderBlock = new BlockChanger();
 		// enderBlock = new TheMajesticEnderiumBlock();
 		// enderBlock = new EnderIngotFromEnderBlock();
 		GameRegistry.registerBlock(enderBlock, "enderBlock");
@@ -65,7 +65,7 @@ public class Main {
 		ModelResourceLocation enderIngotModel = new ModelResourceLocation(
 				"mymods:enderIngot", "inventory");
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-				.register(enderIngotItem, 0, enderIngotModel);
+				.register(enderIngot, 0, enderIngotModel);
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.cobblestone), "dd", "dd",
 				'd', Blocks.dirt);
