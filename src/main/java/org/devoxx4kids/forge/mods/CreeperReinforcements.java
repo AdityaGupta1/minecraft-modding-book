@@ -8,15 +8,16 @@ public class CreeperReinforcements {
 
 	@SubscribeEvent
 	public void spawnReinforcements(LivingDeathEvent event) {
-		if (!(event.entity instanceof EntityCreeper)) {
+		if (!(event.getEntity() instanceof EntityCreeper)) {
 			return;
 		}
 		for (int i = 0; i < 5; i++) {
-			EntityCreeper creeper = new EntityCreeper(event.entity.worldObj);
-			creeper.setLocationAndAngles(event.entity.posX, event.entity.posY,
-					event.entity.posZ, 0, 0);
-			if (!event.entity.worldObj.isRemote) {
-				event.entity.worldObj.spawnEntityInWorld(creeper);
+			EntityCreeper creeper = new EntityCreeper(event.getEntity().worldObj);
+			creeper.setLocationAndAngles(event.getEntity().posX,
+					event.getEntity().posY,
+					event.getEntity().posZ, 0, 0);
+			if (!event.getEntity().worldObj.isRemote) {
+				event.getEntity().worldObj.spawnEntityInWorld(creeper);
 			}
 		}
 	}

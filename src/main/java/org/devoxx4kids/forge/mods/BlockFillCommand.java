@@ -9,9 +9,10 @@ import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 public class BlockFillCommand implements ICommand {
 	private List aliases = new ArrayList();
@@ -45,7 +46,7 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	private void sendErrorMessage(ICommandSender sender, String message) {
-		sender.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED
+		sender.addChatMessage(new TextComponentString(TextFormatting.DARK_RED
 				+ message));
 	}
 
@@ -60,8 +61,8 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args)
-			throws CommandException {
+	public void execute(MinecraftServer server, ICommandSender sender,
+			String[] args) throws CommandException {
 		if (args.length != 1) {
 			sendErrorMessage(sender, "Invalid number of arguments!");
 			return;
@@ -114,13 +115,14 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	@Override
-	public boolean canCommandSenderUseCommand(ICommandSender sender) {
+	public boolean checkPermission(MinecraftServer server,
+			ICommandSender sender) {
 		return sender instanceof EntityPlayer;
 	}
 
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args,
-			BlockPos pos) {
+	public List<String> getTabCompletionOptions(MinecraftServer server,
+			ICommandSender sender, String[] args, BlockPos pos) {
 		return null;
 	}
 }
