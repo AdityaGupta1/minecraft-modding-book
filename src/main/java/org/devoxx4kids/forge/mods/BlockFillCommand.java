@@ -1,4 +1,4 @@
-	package org.devoxx4kids.forge.mods;
+package org.devoxx4kids.forge.mods;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
 public class BlockFillCommand implements ICommand {
-
 	private List aliases = new ArrayList();
 	private Block block;
 
@@ -24,7 +23,7 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(ICommand o) {
 		return 0;
 	}
 
@@ -51,18 +50,17 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
+	public String getCommandName() {
 		return null;
 	}
 
 	@Override
-	public List getAliases() {
+	public List getCommandAliases() {
 		return aliases;
 	}
 
 	@Override
-	public void execute(ICommandSender sender, String[] args)
+	public void processCommand(ICommandSender sender, String[] args)
 			throws CommandException {
 		if (args.length != 1) {
 			sendErrorMessage(sender, "Invalid number of arguments!");
@@ -113,19 +111,16 @@ public class BlockFillCommand implements ICommand {
 				}
 			}
 		}
-
 	}
 
 	@Override
-	public boolean canCommandSenderUse(ICommandSender sender) {
+	public boolean canCommandSenderUseCommand(ICommandSender sender) {
 		return sender instanceof EntityPlayer;
 	}
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args,
 			BlockPos pos) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
