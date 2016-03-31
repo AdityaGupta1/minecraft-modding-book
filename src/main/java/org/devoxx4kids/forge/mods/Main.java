@@ -7,8 +7,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionHelper;
+import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -86,8 +88,11 @@ public class Main {
 		GameRegistry.addSmelting(Items.ender_pearl,
 				new ItemStack(enderIngot, 1), 1.0F);
 
-		// TODO: this still needs to be fixed for Forge 1.9
-//		Items.cake.setPotionEffect(PotionHelper.blazePowderEffect);
+		ItemStack potion = new ItemStack(Items.potionitem);
+		PotionUtils.addPotionToItemStack(potion,
+				PotionType.getPotionTypeForName("strength"));
+		BrewingRecipeRegistry.addRecipe(new ItemStack(Items.potionitem),
+				new ItemStack(Items.cake), potion);
 	}
 
 	@EventHandler
