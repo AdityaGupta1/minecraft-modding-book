@@ -8,11 +8,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ExplodingAnvils {
 	@SubscribeEvent
 	public void explode(LivingHurtEvent event) {
-		if (event.source != DamageSource.anvil) {
+		if (event.getSource() != DamageSource.anvil) {
 			return;
 		}
-		Entity entity = event.entity;
-		event.entity.worldObj.createExplosion(entity, entity.posX, entity.posY,
-				entity.posZ, 2, false);
+		Entity entity = event.getEntity();
+		event.getEntity().worldObj.createExplosion(entity, entity.posX,
+				entity.posY, entity.posZ, 2, false);
 	}
 }
