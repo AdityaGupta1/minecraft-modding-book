@@ -1,1 +1,37 @@
-.DS_Store
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+gradle/
+gradlew*
+
+# other
+eclipse
+run
+
+# forge
+CREDITS-fml.txt
+LICENSE-new.txt
+MinecraftForge-Credits.txt
+Paulscode IBXM Library License.txt
+Paulscode SoundSystem CodecIBXM License.txt
+README.txt
+build.gradle
+forge-1.11.2-13.20.0.2228-changelog.txt
+gradle.properties
+src/main/java/com/
+

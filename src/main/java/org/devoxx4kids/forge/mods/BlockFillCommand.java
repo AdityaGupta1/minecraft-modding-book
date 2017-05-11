@@ -107,7 +107,7 @@ public class BlockFillCommand implements ICommand {
 					.get(1); y++) {
 				for (int z = BlockFillerPositionSelector.pos1.get(2); z <= BlockFillerPositionSelector.pos2
 						.get(2); z++) {
-					((EntityPlayer) sender).worldObj.setBlockState(
+					((EntityPlayer) sender).getEntityWorld().setBlockState(
 							new BlockPos(x, y, z), block.getBlockState()
 									.getBaseState());
 				}

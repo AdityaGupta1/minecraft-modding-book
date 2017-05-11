@@ -11,14 +11,14 @@ public class PigsDroppingDiamonds {
 	
 	@SubscribeEvent
 	public void dropDiamonds(LivingDeathEvent event) {
-		if (!(event.entity instanceof EntityPig)) {
+		if (!(event.getEntity() instanceof EntityPig)) {
 			return;
 		}
 		
 		Random random = new Random();
 		
-		if (!event.entity.worldObj.isRemote) {
-			event.entity.dropItem(Items.diamond, random.nextInt(3));
+		if (!event.getEntity().getEntityWorld().isRemote) {
+			event.getEntity().dropItem(Items.DIAMOND, random.nextInt(3));
 		}
 	}
 }

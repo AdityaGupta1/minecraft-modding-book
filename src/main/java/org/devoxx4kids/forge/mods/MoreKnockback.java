@@ -7,8 +7,8 @@ public class MoreKnockback {
 
 	@SubscribeEvent
 	public void addKnockback(LivingHurtEvent event) {
-		event.entity.motionX *= 10;
+		event.getEntity().motionX *= 10;
 		// event.entity.motionY *= 10;
-		event.entity.motionZ *= 10;
+		event.getEntity().motionZ *= 10;
 	}
 }

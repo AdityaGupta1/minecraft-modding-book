@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 
 public class EnderIngotFromEnderBlock extends Block {
 	public EnderIngotFromEnderBlock() {
-		super(Material.iron);
+		super(Material.IRON);
 //		this.setBlockName("enderBlock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 //		this.textureName = "mymods:ender_block";

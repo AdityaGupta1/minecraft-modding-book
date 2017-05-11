@@ -6,7 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class EnderBlock extends Block {
 	public EnderBlock() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setUnlocalizedName("enderBlock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setResistance(5.0F);

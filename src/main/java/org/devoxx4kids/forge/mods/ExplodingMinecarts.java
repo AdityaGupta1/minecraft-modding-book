@@ -7,8 +7,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ExplodingMinecarts {
 	@SubscribeEvent
 	public void explode(MinecartCollisionEvent event) {
-		EntityMinecart minecart = event.minecart;
-		minecart.worldObj.createExplosion(minecart, minecart.posX,
+		EntityMinecart minecart = event.getMinecart();
+		minecart.getEntityWorld().createExplosion(minecart, minecart.posX,
 				minecart.posY, minecart.posZ, 2, false);
 	}
 }

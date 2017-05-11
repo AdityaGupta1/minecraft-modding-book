@@ -11,7 +11,7 @@ public class EndermanSpawner extends Item {
 	public EndermanSpawner() {
 		super();
 		this.setUnlocalizedName("enderIngot");
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setCreativeTab(CreativeTabs.MATERIALS);
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world,
@@ -19,7 +19,7 @@ public class EndermanSpawner extends Item {
 		EntityEnderman enderman = new EntityEnderman(world);
 		enderman.setLocationAndAngles(player.posX, player.posY, player.posZ, 0,
 				0);
-		world.spawnEntityInWorld(enderman);
+		world.spawnEntity(enderman);
 		if (!player.capabilities.isCreativeMode) {
 			stack.stackSize--;
 		}

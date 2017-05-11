@@ -12,11 +12,11 @@ public class BiggerTNTExplosionsWithoutFuse {
 
 	@SubscribeEvent
 	public void explode(EntityJoinWorldEvent event) {
-		if (!(event.entity instanceof EntityTNTPrimed)) {
+		if (!(event.getEntity() instanceof EntityTNTPrimed)) {
 			return;
 		}
-		Entity entity = event.entity;
-		event.entity.worldObj.createExplosion(entity, entity.posX, entity.posY,
+		Entity entity = event.getEntity();
+		entity.getEntityWorld().createExplosion(entity, entity.posX, entity.posY,
 				entity.posZ, power, true);
 	}
 

@@ -2,7 +2,7 @@ package org.devoxx4kids.forge.mods;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -50,7 +50,8 @@ public class Main {
 		// enderBlock = new BlockChanger();
 		// enderBlock = new TheMajesticEnderiumBlock();
 		// enderBlock = new EnderIngotFromEnderBlock();
-		GameRegistry.registerBlock(enderBlock, "enderBlock");
+		ModelResourceLocation resource = new ModelResourceLocation("enderBlock");
+		GameRegistry.register(enderBlock, resource);
 		Item enderBlockItem = GameRegistry.findItem("mymods", "enderBlock");
 		ModelResourceLocation enderBlockModel = new ModelResourceLocation(
 				"mymods:enderBlock", "inventory");
@@ -60,33 +61,34 @@ public class Main {
 		enderIngot = new EnderIngot();
 		// enderIngot = new EndermanSpawner();
 		// enderIngot = new EdibleIngot();
-		GameRegistry.registerItem(enderIngot, "enderIngot");
+		resource = new ModelResourceLocation("enderIngot");
+		GameRegistry.register(enderIngot, resource);
 		Item enderIngotItem = GameRegistry.findItem("mymods", "enderIngot");
 		ModelResourceLocation enderIngotModel = new ModelResourceLocation(
 				"mymods:enderIngot", "inventory");
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 				.register(enderIngot, 0, enderIngotModel);
 
-		GameRegistry.addRecipe(new ItemStack(Blocks.cobblestone), "dd", "dd",
-				'd', Blocks.dirt);
+		GameRegistry.addRecipe(new ItemStack(Blocks.COBBLESTONE), "dd", "dd",
+				'd', Blocks.DIRT);
 
 		GameRegistry.addRecipe(new ItemStack(enderBlock), "iii", "iii", "iii",
 				'i', enderIngot);
 
 		GameRegistry.addRecipe(new ItemStack(enderBlock), "e e", " o ", "e e",
-				'o', Blocks.obsidian, 'e', Items.ender_eye);
+				'o', Blocks.OBSIDIAN, 'e', Items.ENDER_EYE);
 
 		GameRegistry.addShapelessRecipe(new ItemStack(enderIngot, 9),
 				new ItemStack(enderBlock));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(enderIngot, 12),
-				new ItemStack(enderBlock, 1), new ItemStack(Items.iron_ingot),
-				new ItemStack(Items.gold_ingot));
+				new ItemStack(enderBlock, 1), new ItemStack(Items.IRON_INGOT),
+				new ItemStack(Items.GOLD_INGOT));
 
-		GameRegistry.addSmelting(Items.ender_pearl,
+		GameRegistry.addSmelting(Items.ENDER_PEARL,
 				new ItemStack(enderIngot, 1), 1.0F);
 
-		Items.cake.setPotionEffect(PotionHelper.blazePowderEffect);
+		Items.CAKE.setPotionEffect(PotionHelper.blazePowderEffect);
 	}
 
 	@EventHandler

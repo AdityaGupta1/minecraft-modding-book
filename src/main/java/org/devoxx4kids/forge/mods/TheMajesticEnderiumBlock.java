@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class TheMajesticEnderiumBlock extends Block {
 	public TheMajesticEnderiumBlock() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setUnlocalizedName("enderBlock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setResistance(5.0F);
@@ -32,7 +32,7 @@ public class TheMajesticEnderiumBlock extends Block {
 		EntityEnderEye eye = new EntityEnderEye(world, pos.getX() + 0.5, pos.getY() + 1.5,
 				pos.getZ() + 0.5);
 		eye.motionY = 0.1;
-		world.spawnEntityInWorld(eye);
+		world.spawnEntity(eye);
 		return true;
 	}
 }

@@ -9,17 +9,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class BouncySponges {
 	@SubscribeEvent
 	public void makeJumpHigher(LivingJumpEvent event) {
-		if (!(event.entity instanceof EntityPlayer)) {
+		if (!(event.getEntity() instanceof EntityPlayer)) {
 			return;
 		}
 
-		BlockPos pos = new BlockPos(event.entity.posX, event.entity.posY - 1,
-				event.entity.posZ);
+		BlockPos pos = new BlockPos(event.getEntity().posX, event.getEntity().posY - 1,
+				event.getEntity().posZ);
 
-		if (event.entity.worldObj.getBlockState(pos).getBlock() != Blocks.sponge) {
+		if (event.getEntity().getEntityWorld().getBlockState(pos).getBlock() != Blocks.SPONGE) {
 			return;
 		}
 
-		event.entity.motionY *= 5;
+		event.getEntity().motionY *= 5;
 	}
 }

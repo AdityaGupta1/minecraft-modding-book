@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class BlockChanger extends Block {
 	public BlockChanger() {
-		super(Material.iron);
+		super(Material.IRON);
 		this.setUnlocalizedName("enderBlock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setResistance(5.0F);
