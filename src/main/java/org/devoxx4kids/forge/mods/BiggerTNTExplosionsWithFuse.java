@@ -1,4 +1,4 @@
-	package org.devoxx4kids.forge.mods;
+package org.devoxx4kids.forge.mods;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -35,7 +35,7 @@ public class BiggerTNTExplosionsWithFuse {
 
 	@SubscribeEvent
 	public void explode(ItemExpireEvent event) {
-		if (event.getEntityItem().getItem() != Item
+		if (event.getEntityItem().getEntityItem().getItem() != Item
 				.getItemFromBlock(Blocks.TNT)) {
 			return;
 		}

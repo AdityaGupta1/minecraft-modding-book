@@ -7,9 +7,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityEnderEye;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class TheMajesticEnderiumBlock extends Block {
@@ -26,9 +26,11 @@ public class TheMajesticEnderiumBlock extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote)
 			return false;
-		player.addChatMessage(new ChatComponentText(
-				EnumChatFormatting.DARK_PURPLE
-						+ "You have clicked on the majestic ENDERIUM BLOCK!!!!!"));
+		
+		TextComponentString textComponentString = new TextComponentString("You have clicked on the majestic ENDERIUM BLOCK!!!!!");
+		textComponentString.getStyle().setColor(TextFormatting.DARK_PURPLE);
+		player.sendMessage(textComponentString);
+		
 		EntityEnderEye eye = new EntityEnderEye(world, pos.getX() + 0.5, pos.getY() + 1.5,
 				pos.getZ() + 0.5);
 		eye.motionY = 0.1;

@@ -9,8 +9,8 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 public class FlamingPigs implements ICommand {
 
@@ -73,8 +73,9 @@ public class FlamingPigs implements ICommand {
 	}
 
 	private void sendErrorMessage(ICommandSender sender, String message) {
-		sender.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED
-				+ message));
+		TextComponentString textComponentString = new TextComponentString("You broke a block!");
+		textComponentString.getStyle().setColor(TextFormatting.DARK_RED);
+		sender.sendMessage(textComponentString);
 	}
 
 	@Override

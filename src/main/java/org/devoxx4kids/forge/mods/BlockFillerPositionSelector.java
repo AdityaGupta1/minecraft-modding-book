@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.init.Items;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -27,18 +27,22 @@ public class BlockFillerPositionSelector {
 			pos1.add(event.getPos().getX());
 			pos1.add(event.getPos().getY());
 			pos1.add(event.getPos().getZ());
-			event.entityPlayer.addChatMessage(new ChatComponentText(
-					EnumChatFormatting.GREEN + "Position 1 set to " + event.getPos().getX()
-							+ ", " + event.getPos().getY() + ", " + event.getPos().getZ() + "."));
+			
+			TextComponentString textComponentString = new TextComponentString("Position 1 set to " + event.getPos().getX()
+					+ ", " + event.getPos().getY() + ", " + event.getPos().getZ() + ".");
+			textComponentString.getStyle().setColor(TextFormatting.GREEN);
+			event.getEntityPlayer().sendMessage(textComponentString);
 			event.setCanceled(true);
 		} else if (event.action == Action.LEFT_CLICK_BLOCK) {
 			pos2.clear();
 			pos2.add(event.getPos().getX());
 			pos2.add(event.getPos().getY());
 			pos2.add(event.getPos().getZ());
-			event.getEntityPlayer().addChatMessage(new ChatComponentText(
-					EnumChatFormatting.GREEN + "Position 2 set to " + event.getPos().getX()
-							+ ", " + event.getPos().getY() + ", " + event.getPos().getZ() + "."));
+			
+			TextComponentString textComponentString = new TextComponentString("Position 2 set to " + event.getPos().getX()
+					+ ", " + event.getPos().getY() + ", " + event.getPos().getZ() + ".");
+			textComponentString.getStyle().setColor(TextFormatting.GREEN);
+			event.getEntityPlayer().sendMessage(textComponentString);
 			event.setCanceled(true);
 		}
 	}

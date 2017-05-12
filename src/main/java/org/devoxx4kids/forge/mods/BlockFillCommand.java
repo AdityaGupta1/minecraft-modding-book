@@ -10,8 +10,8 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 public class BlockFillCommand implements ICommand {
 
@@ -23,15 +23,15 @@ public class BlockFillCommand implements ICommand {
 		aliases.add("fb");
 	}
 
-	@Override
-	public int compareTo(Object o) {
-		return 0;
-	}
-
-	@Override
-	public String getCommandUsage(ICommandSender sender) {
-		return "fillblocks <block ID>";
-	}
+//	@Override
+//	public int compareTo(Object o) {
+//		return 0;
+//	}
+//
+//	@Override
+//	public String getCommandUsage(ICommandSender sender) {
+//		return "fillblocks <block ID>";
+//	}
 
 	@Override
 	public boolean isUsernameIndex(String[] args, int index) {
@@ -46,8 +46,10 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	private void sendErrorMessage(ICommandSender sender, String message) {
-		sender.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED
-				+ message));
+		TextComponentString textComponentString = new TextComponentString(message);
+		textComponentString.getStyle().setColor(TextFormatting.DARK_RED);
+
+		sender.sendMessage(textComponentString);
 	}
 
 	@Override
@@ -70,7 +72,7 @@ public class BlockFillCommand implements ICommand {
 		}
 		try {
 			block = Block.getBlockById(Integer.parseInt(args[0]));
-			if (block == Blocks.air && Integer.parseInt(args[0]) != 0) {
+			if (block == Blocks.AIR && Integer.parseInt(args[0]) != 0) {
 				sendErrorMessage(sender, "The argument \"" + args[0]
 						+ "\" is not a valid block ID!");
 				return;
@@ -116,10 +118,10 @@ public class BlockFillCommand implements ICommand {
 
 	}
 
-	@Override
-	public boolean canCommandSenderUse(ICommandSender sender) {
-		return sender instanceof EntityPlayer;
-	}
+//	@Override
+//	public boolean canCommandSenderUse(ICommandSender sender) {
+//		return sender instanceof EntityPlayer;
+//	}
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args,
