@@ -22,7 +22,7 @@ public class BlockChanger extends Block {
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 		IBlockState block = world.getBlockState(pos.add(0, -1, 0));
 		world.setBlockState(pos, block);
-		EntityLightningBolt lightning = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ());
+		EntityLightningBolt lightning = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
 		world.addWeatherEffect(lightning);
 	}
 }

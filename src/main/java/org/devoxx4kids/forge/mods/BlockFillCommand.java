@@ -9,6 +9,7 @@ import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -22,16 +23,6 @@ public class BlockFillCommand implements ICommand {
 		aliases.add("fillblocks");
 		aliases.add("fb");
 	}
-
-//	@Override
-//	public int compareTo(Object o) {
-//		return 0;
-//	}
-//
-//	@Override
-//	public String getCommandUsage(ICommandSender sender) {
-//		return "fillblocks <block ID>";
-//	}
 
 	@Override
 	public boolean isUsernameIndex(String[] args, int index) {
@@ -64,8 +55,18 @@ public class BlockFillCommand implements ICommand {
 	}
 
 	@Override
-	public void execute(ICommandSender sender, String[] args)
-			throws CommandException {
+	public int compareTo(ICommand o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public String getUsage(ICommandSender sender) {
+		return "fillblocks <block ID>";
+	}
+	
+	@Override
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length != 1) {
 			sendErrorMessage(sender, "Invalid number of arguments!");
 			return;
@@ -115,19 +116,17 @@ public class BlockFillCommand implements ICommand {
 				}
 			}
 		}
-
 	}
-
-//	@Override
-//	public boolean canCommandSenderUse(ICommandSender sender) {
-//		return sender instanceof EntityPlayer;
-//	}
-
+	
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args,
-			BlockPos pos) {
+	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
+		return sender instanceof EntityPlayer;
+	}
+	
+	@Override
+	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args,
+			BlockPos targetPos) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

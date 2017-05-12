@@ -13,7 +13,7 @@ public class ZombieKnights {
 			return;
 		}
 		EntityZombie zombie = (EntityZombie) event.getEntity();
-		zombie.setCurrentItemOrArmor(0, new ItemStack(Items.DIAMOND_AXE));
+		zombie.setsetCurrentItemOrArmor(0, new ItemStack(Items.DIAMOND_AXE));
 		zombie.setCurrentItemOrArmor(1, new ItemStack(Items.DIAMOND_CHESTPLATE));
 		zombie.setCurrentItemOrArmor(2, new ItemStack(Items.DIAMOND_LEGGINGS));
 		zombie.setCurrentItemOrArmor(3, new ItemStack(Items.DIAMOND_BOOTS));
