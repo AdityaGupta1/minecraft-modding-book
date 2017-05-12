@@ -7,6 +7,6 @@ public class EnderIngot extends Item {
 	public EnderIngot() {
 		super();
 		this.setUnlocalizedName("enderIngot");
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setCreativeTab(CreativeTabs.MATERIALS);
 	}
 }
