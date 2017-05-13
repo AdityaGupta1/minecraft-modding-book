@@ -7,7 +7,6 @@ import net.minecraft.init.Items;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockFillerPositionSelector {
@@ -22,7 +21,7 @@ public class BlockFillerPositionSelector {
 				|| !event.getEntityPlayer().capabilities.isCreativeMode) {
 			return;
 		}
-		if (event.action == Action.RIGHT_CLICK_BLOCK) {
+		if (event instanceof PlayerInteractEvent.RightClickBlock) {
 			pos1.clear();
 			pos1.add(event.getPos().getX());
 			pos1.add(event.getPos().getY());
@@ -33,7 +32,7 @@ public class BlockFillerPositionSelector {
 			textComponentString.getStyle().setColor(TextFormatting.GREEN);
 			event.getEntityPlayer().sendMessage(textComponentString);
 			event.setCanceled(true);
-		} else if (event.action == Action.LEFT_CLICK_BLOCK) {
+		} else if (event instanceof PlayerInteractEvent.RightClickBlock) {
 			pos2.clear();
 			pos2.add(event.getPos().getX());
 			pos2.add(event.getPos().getY());
