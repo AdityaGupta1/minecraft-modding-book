@@ -21,7 +21,8 @@ public class EndermanSpawner extends Item {
 				0);
 		world.spawnEntity(enderman);
 		if (!player.capabilities.isCreativeMode) {
-			stack.stackSize--;
+			stack.setCount(stack.getCount()-1);
+//			stack.stackSize--;
 		}
 		return stack;
 	}

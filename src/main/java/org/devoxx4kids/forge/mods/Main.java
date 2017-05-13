@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -88,6 +89,8 @@ public class Main {
 		GameRegistry.addSmelting(Items.ENDER_PEARL,
 				new ItemStack(enderIngot, 1), 1.0F);
 
+//		PotionEffect potionEffect = new PotionEffect();
+//		Items.CAKE.set(potionEffect);
 		Items.CAKE.setPotionEffect(PotionHelper.blazePowderEffect);
 	}
 
