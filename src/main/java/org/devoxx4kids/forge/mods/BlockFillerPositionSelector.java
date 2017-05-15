@@ -32,7 +32,7 @@ public class BlockFillerPositionSelector {
 			textComponentString.getStyle().setColor(TextFormatting.GREEN);
 			event.getEntityPlayer().sendMessage(textComponentString);
 			event.setCanceled(true);
-		} else if (event instanceof PlayerInteractEvent.RightClickBlock) {
+		} else if (event instanceof PlayerInteractEvent.LeftClickBlock) {
 			pos2.clear();
 			pos2.add(event.getPos().getX());
 			pos2.add(event.getPos().getY());

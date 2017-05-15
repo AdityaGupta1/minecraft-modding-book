@@ -1,10 +1,13 @@
 package org.devoxx4kids.forge.mods;
 
+import com.google.common.base.Predicate;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -19,7 +22,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Main.MODID, version = Main.VERSION)
 public class Main {
-	public static final String MODID = "MyMods";
+	public static final String MODID = "mymods";
 	public static final String VERSION = "2.0";
 
 	public static Block enderBlock;
@@ -52,8 +55,9 @@ public class Main {
 		// enderBlock = new TheMajesticEnderiumBlock();
 		// enderBlock = new EnderIngotFromEnderBlock();
 		ModelResourceLocation resource = new ModelResourceLocation("enderBlock");
-		GameRegistry.register(enderBlock, resource);
-		Item enderBlockItem = GameRegistry.findItem("mymods", "enderBlock");
+//		GameRegistry.register(enderBlock, resource);
+//		Item enderBlockItem = GameRegistry.findItem("mymods", "enderBlock");
+		Item enderBlockItem = Item.getItemFromBlock(GameRegistry.register(enderBlock, resource));
 		ModelResourceLocation enderBlockModel = new ModelResourceLocation(
 				"mymods:enderBlock", "inventory");
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
@@ -63,8 +67,8 @@ public class Main {
 		// enderIngot = new EndermanSpawner();
 		// enderIngot = new EdibleIngot();
 		resource = new ModelResourceLocation("enderIngot");
-		GameRegistry.register(enderIngot, resource);
-		Item enderIngotItem = GameRegistry.findItem("mymods", "enderIngot");
+//		GameRegistry.register(enderIngot, resource);
+//		Item enderIngotItem = GameRegistry.findItem("mymods", "enderIngot");
 		ModelResourceLocation enderIngotModel = new ModelResourceLocation(
 				"mymods:enderIngot", "inventory");
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
@@ -91,7 +95,9 @@ public class Main {
 
 //		PotionEffect potionEffect = new PotionEffect();
 //		Items.CAKE.set(potionEffect);
-		Items.CAKE.setPotionEffect(PotionHelper.blazePowderEffect);
+//		Items.CAKE.setPotionEffect(PotionHelper.blazePowderEffect);
+		Predicate<ItemStack> cakePredicate = new PotionHelper.ItemPredicateInstance(Items.CAKE);
+		PotionHelper.registerPotionTypeConversion(PotionTypes.AWKWARD, cakePredicate, PotionTypes.STRENGTH);
 	}
 
 	@EventHandler

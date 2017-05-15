@@ -34,4 +34,5 @@ build.gradle
 forge-1.11.2-13.20.0.2228-changelog.txt
 gradle.properties
 src/main/java/com/
+logs/
 

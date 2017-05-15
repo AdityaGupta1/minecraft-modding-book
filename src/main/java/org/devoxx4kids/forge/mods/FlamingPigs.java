@@ -40,7 +40,7 @@ public class FlamingPigs implements ICommand {
 	}
 
 	private void sendErrorMessage(ICommandSender sender, String message) {
-		TextComponentString textComponentString = new TextComponentString("You broke a block!");
+		TextComponentString textComponentString = new TextComponentString("Invalid number of arguments!");
 		textComponentString.getStyle().setColor(TextFormatting.DARK_RED);
 		sender.sendMessage(textComponentString);
 	}
